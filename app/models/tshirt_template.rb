@@ -1,0 +1,2 @@
+class TshirtTemplate < ApplicationRecord
+end
