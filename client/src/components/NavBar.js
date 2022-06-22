@@ -1,7 +1,7 @@
 import React from 'react'
 import { useHistory, NavLink } from "react-router-dom"
 
-function NavBar({ setIsAuthenticated, setUser }) {
+function NavBar({ setIsAuthenticated, setUser, isAuthenticated }) {
 
   const history = useHistory();
 
@@ -21,12 +21,17 @@ function NavBar({ setIsAuthenticated, setUser }) {
     });
   }
 
+  function handleMyPage() {
+    history.push("/my-page");
+  }
+
 
   return (
     <header>
       <NavLink to="/" >HOME</NavLink>
       <button onClick={handleLogin} > Login</button>
       <button onClick={handleLogout} >Logout</button>
+      {isAuthenticated ? <button onClick={handleMyPage} >My page</button> : null}
     </header>
   )
 }

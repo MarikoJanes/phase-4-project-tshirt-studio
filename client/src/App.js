@@ -10,6 +10,7 @@ import NavBar from "./components/NavBar";
 
 
 
+
 function App() {
 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -19,10 +20,10 @@ function App() {
 
   return (
     <>
-    <NavBar setIsAuthenticated={setIsAuthenticated} setUser={setUser} />
+    <NavBar setIsAuthenticated={setIsAuthenticated} setUser={setUser} isAuthenticated={isAuthenticated} />
     <Switch>
       <Route exact path="/new" >
-        <CreateStudio />
+        <CreateStudio user={user} />
       </Route>
       <Route exact path="/login" >
         <Login setIsAuthenticated={setIsAuthenticated} setUser={setUser} />

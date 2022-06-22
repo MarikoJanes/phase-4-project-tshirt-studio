@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_20_215552) do
+ActiveRecord::Schema.define(version: 2022_06_21_220126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "designed_tshirts", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "tshirt_template_id", null: false
+    t.string "front_design"
+    t.string "back_design"
+    t.boolean "private"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tshirt_template_id"], name: "index_designed_tshirts_on_tshirt_template_id"
+    t.index ["user_id"], name: "index_designed_tshirts_on_user_id"
+  end
 
   create_table "tshirt_templates", force: :cascade do |t|
     t.string "color"
@@ -31,4 +43,6 @@ ActiveRecord::Schema.define(version: 2022_06_20_215552) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "designed_tshirts", "tshirt_templates"
+  add_foreign_key "designed_tshirts", "users"
 end

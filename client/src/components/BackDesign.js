@@ -2,7 +2,7 @@ import React, { useRef, useEffect  } from 'react';
 import { Image, Transformer } from "react-konva";
 
 
-function BackGround({image, isSelected, onSelect, onChange}) {
+function BackDesign({image, isSelected, onSelect, onChange}) {
     const shapeRef = useRef();
     const trRef = useRef();
 
@@ -62,4 +62,4 @@ function BackGround({image, isSelected, onSelect, onChange}) {
   )
 }
 
-export default BackGround
+export default BackDesign
