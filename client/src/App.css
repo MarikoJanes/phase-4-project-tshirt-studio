@@ -68,8 +68,8 @@
 li {
   list-style: none;
 }
-
-button {
+/* 
+button.primary {
   padding: 0.25rem 1rem;
   font-family: inherit;
   border: none;
@@ -79,4 +79,9 @@ button {
 button.primary {
   background-color: var(--green);
   color: green;
+} */
+
+.login {
+  width: 400px;
 }
+

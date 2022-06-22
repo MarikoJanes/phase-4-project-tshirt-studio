@@ -1,5 +1,5 @@
 import React from 'react'
-import { useHistory, NavLink } from "react-router-dom"
+import { useHistory, NavLink } from "react-router-dom";
 
 function NavBar({ setIsAuthenticated, setUser, isAuthenticated }) {
 
@@ -22,7 +22,7 @@ function NavBar({ setIsAuthenticated, setUser, isAuthenticated }) {
   }
 
   function handleMyPage() {
-    history.push("/my-page");
+    history.push("/mypage");
   }
 
 

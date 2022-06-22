@@ -20,11 +20,11 @@ class DesignedTshirtsController < ApplicationController
         render json: tshirt, status: :accepted
     end
 
-    # def destroy 
-    #     tshirt = DesignedTshirt.find(params[:id])
-    #     tshirt.destroy
-    #     head :no_content 
-    # end
+    def destroy 
+        tshirt = DesignedTshirt.find(params[:id])
+        tshirt.destroy
+        head :no_content 
+    end
 
 
     private 

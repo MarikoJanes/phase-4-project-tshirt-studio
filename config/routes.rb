@@ -2,8 +2,7 @@ Rails.application.routes.draw do
   
   resources :users, only: [:index, :show, :create]
   resources :tshirt_templates, only: [:index, :show]
-  resources :designed_tshirts, only: [:index, :show, :create, :update]
-
+  resources :designed_tshirts
   # Login 
   post "/login", to: "sessions#login"
 

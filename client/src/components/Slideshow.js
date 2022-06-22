@@ -43,7 +43,7 @@ function Slideshow({ tshirtData }) {
         ssr={true} // means to render carousel on server-side.
         infinite={true}
         autoPlay={true}
-        autoPlaySpeed={1000}
+        autoPlaySpeed={3000}
         keyBoardControl={true}
         customTransition="all .5"
         transitionDuration={1000}

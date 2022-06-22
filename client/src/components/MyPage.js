@@ -23,7 +23,13 @@ function MyPage({ user }) {
     console.log("take you to the gallery page");
     history.push("/galleries");
   }
-  console.log(user);
+
+  function deleteDesign(id) {
+    console.log(id);
+    const newData = userData.designed_tshirts.filter(tshirt => tshirt.id !== id);
+    console.log(newData);
+    setUserData(newData);
+  }
 
   if (!userData) return <h2>Loading...</h2>;
 
@@ -44,7 +50,7 @@ function MyPage({ user }) {
         <h3>your awesome designs!</h3>
         {userData.designed_tshirts ? 
           userData.designed_tshirts.map(data => {
-            return <TshirtCard key={data.id} data={data} />
+            return <TshirtCard key={data.id} data={data} deleteDesign={deleteDesign} />
           }) : null}
       </div>
     </>

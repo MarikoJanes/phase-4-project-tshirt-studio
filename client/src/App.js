@@ -9,9 +9,6 @@ import NavBar from "./components/NavBar";
 import Gallery from "./components/Gallery";
 
 
-
-
-
 function App() {
 
   const [isAuthenticated, setIsAuthenticated] = useState(false);

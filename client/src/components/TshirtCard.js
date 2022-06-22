@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function TshirtCard({ data }) {
+function TshirtCard({ data, deleteDesign }) {
   const [edit, setEdit] = useState(false);
   const [isChecked, setIsChecked] = useState(data.private);
 
@@ -30,19 +30,31 @@ function TshirtCard({ data }) {
     .then(data => console.log(data));
   }
 
+  function handleDelete(e) {
+    console.log(e.target.parentElement.parentElement.id);
+    fetch(`/designed_tshirts/${data.id}`, {
+      method: "DELETE"
+    })
+    deleteDesign(e.target.parentElement.parentElement.id);
+  }
+
 
 
   return (
     <div className='cards lists'>
-        <li className="card">
+        <li className="card" id={data.id}>
             <img style={{height: "236.29px"}} src={data.front_design} alt='' />
-          <button  onClick={handleEditBtn} className="primary">Edit Visibility</button>
+          <button  onClick={handleEditBtn} className="primary">Edit?</button>
           {edit ? 
-            <form onSubmit={handleSubmit} >
-              <input type="checkbox" checked={isChecked} onChange={handlePrivateChange}/>
-                <label>make it private?</label>
-              <input type="submit" value="Update!" />
-            </form> : null}
+          <div>
+              <form onSubmit={handleSubmit} >
+                  <input type="checkbox" checked={isChecked} onChange={handlePrivateChange}/>
+                    <label>make it private?</label>
+                  <input type="submit" value="Update!" />
+              </form>
+              <button onClick={handleDelete}>X</button>
+          </div>
+             : null}
         </li>
     </div>
   )

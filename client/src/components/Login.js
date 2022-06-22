@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
+import { Flex, Heading, Input, Button } from "@chakra-ui/react";
 
 function Login({ setUser, setIsAuthenticated }) {
     const [username, setUsername] = useState("");
@@ -7,6 +8,7 @@ function Login({ setUser, setIsAuthenticated }) {
 
     const [error, setError] = useState([]);
     const history = useHistory();
+
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -38,32 +40,34 @@ function Login({ setUser, setIsAuthenticated }) {
     }
 
   return (
-    <>
-        <h1>T-shirt studio</h1>
-        <h1>Login</h1>
-        <br></br>
-        <form onSubmit={handleSubmit}>
-            <label>Username</label>
-            <input 
+    <Flex height="100vh" alignItems="center" justifyContent="center">
+        <Flex className="login" direction="column" background="yellow.100" p={12} rounded={6}>
+            <form onSubmit={handleSubmit} >
+            <Heading mb={6} >Login</Heading>
+            <Input 
+                background="white"
+                placeholder='username'  
+                mb={3} 
                 type="text"
                 name="username" 
-                value={username} 
+                value={username}
                 onChange={e => setUsername(e.target.value)}
             />
-            <br></br>
-            <label>Password</label>
-            <input 
+            <Input 
+                background="white"
+                placeholder="password"
+                mb={6}
                 type="password" 
                 name="password" 
                 value={password} 
                 onChange={e => setPassword(e.target.value)}
             />
-            <br></br>
-            <input type="submit" value="Login!" />
-        </form>
-        {error ? <div style={{color: 'red'}} >{error}</div> : null}
-
-    </>
+            {error ? <div style={{color: 'red'}} >{error}</div> : null}
+            <Button mt={3} mb={6} type="submit" colorScheme="orange" variant='solid'>Login</Button>
+            </form>
+            <p style={{color: "gray"}}>Not a member? <Link to="/signup"> Join Now</Link></p>
+        </Flex>
+    </Flex>
   )
 }
 

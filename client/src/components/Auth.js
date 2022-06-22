@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
+import { Flex, Heading, Input, Button } from "@chakra-ui/react";
 
 function Auth({ setUser, setIsAuthenticated }) {
     const [username, setUsername] = useState("");
@@ -43,47 +44,61 @@ function Auth({ setUser, setIsAuthenticated }) {
 
 
   return (
-    <>
-        <h1>Sign Up for a T-shirt createtor?</h1>
-        <form onSubmit={handleSubmit}>
-            <label>Username</label>
-            <input 
-                type="text" 
-                name="usesrname" 
-                value={username} 
-                onChange={e => setUsername(e.target.value)} 
-            />
-                <br></br>
-            <label>Email</label>
-            <input 
-                type="text"
-                name="email" 
-                value={email}
-                onChange={e => setEmail(e.target.value)} 
-            />          
-                <br></br>      
-            <label>Password</label>
-            <input 
-                type="password" 
-                name="password" 
-                value={password} 
-                onChange={e => setPassword(e.target.value)}
-            />
-                <br></br>
-            <label>Password Confirmation</label>
-            <input 
-                type="password" 
-                name="password"
-                value={passwordConfirmation}
-                onChange={e => setPasswordConfirmation(e.target.value)}
-            />
-                <br></br>
-            {errors ? errors.map((error, index) => {
-                return <p style={{color: "red"}} key={index}>{error}</p>
-            }) : null}
-            <input type="submit" value="Sign Up!" />
-        </form>
-    </>
+    <Flex height="100vh" alignItems="center" justifyContent="center">
+        <Flex className="login" direction="column" background="yellow.100" p={12} rounded={6}>
+            <form onSubmit={handleSubmit}>
+                <Heading mb={6} >Sign Up</Heading>
+            {/* <label>Username</label> */}
+                <Input 
+                    background="white"
+                    placeholder='username' 
+                    mb={3}
+                    type="text" 
+                    name="usesrname" 
+                    value={username} 
+                    onChange={e => setUsername(e.target.value)} 
+                />
+
+            {/* <label>Email</label> */}
+                <Input 
+                    background="white"
+                    placeholder="email@example.com"
+                    mb={6}
+                    type="text"
+                    name="email" 
+                    value={email}
+                    onChange={e => setEmail(e.target.value)} 
+                />           
+            {/* <label>Password</label> */}
+                <Input 
+                    background="white"
+                    placeholder="password"
+                    mb={6}
+                    type="password" 
+                    name="password" 
+                    value={password} 
+                    onChange={e => setPassword(e.target.value)}
+                />
+
+            {/* <label>Password Confirmation</label> */}
+                <Input 
+                    background="white"
+                    placeholder="password confirmation"
+                    mb={6}
+                    type="password" 
+                    name="password"
+                    value={passwordConfirmation}
+                    onChange={e => setPasswordConfirmation(e.target.value)}
+                />
+
+                {errors ? errors.map((error, index) => {
+                    return <p style={{color: "red"}} key={index}>{error}</p>
+                }) : null}
+                <Button mt={3} mb={6} type="submit" colorScheme="orange" variant='solid'>Sign Up</Button>
+            </form>
+            <p style={{color: "gray"}}>Already a member? <Link to="/login"> Log in</Link></p>
+        </Flex>
+    </Flex>
   )
 }
 
