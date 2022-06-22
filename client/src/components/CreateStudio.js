@@ -56,7 +56,6 @@ function CreateStudio({ user }) {
     }
 
     function handleChange(e) {
-      debugger
       console.log(e.target.checked);
       setPrivateVis(e.target.checked);
     }

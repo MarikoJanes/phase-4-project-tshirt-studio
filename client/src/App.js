@@ -6,6 +6,7 @@ import Auth from "./components/Auth";
 import MyPage from "./components/MyPage";
 import TitlePage from "./components/TitlePage";
 import NavBar from "./components/NavBar";
+import Gallery from "./components/Gallery";
 
 
 
@@ -33,6 +34,9 @@ function App() {
       </Route>
       <Route exact path="/mypage">
         <MyPage user={user} />
+      </Route>
+      <Route exact path="/galleries">
+        <Gallery />
       </Route>
       <Route exact path="/" >
         <TitlePage />

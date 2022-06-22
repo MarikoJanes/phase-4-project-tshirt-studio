@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-# before_action :authorized_user, except: [:login]
+before_action :authorized_user, except: [:login]
 
     def login 
         user = User.find_by(name: params[:name])

@@ -10,7 +10,7 @@ function MyPage({ user }) {
   
 
   useEffect(() => {
-    fetch(`/users/${user.id}`)
+    fetch(`/authorized_user`)
     .then(res => res.json())
     .then(data => setUserData(data))
   }, []);
@@ -21,9 +21,12 @@ function MyPage({ user }) {
 
   function handleClickView() {
     console.log("take you to the gallery page");
+    history.push("/galleries");
   }
+  console.log(user);
 
-  console.log(userData.designed_tshirts)
+  if (!userData) return <h2>Loading...</h2>;
+
   return (
     <>
       <div>
@@ -39,7 +42,7 @@ function MyPage({ user }) {
       </div>
       <div>
         <h3>your awesome designs!</h3>
-        {userData.designed_tshirts.length >= 0 ? 
+        {userData.designed_tshirts ? 
           userData.designed_tshirts.map(data => {
             return <TshirtCard key={data.id} data={data} />
           }) : null}
