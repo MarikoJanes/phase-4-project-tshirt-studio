@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useHistory  } from "react-router-dom";
+import { SimpleGrid, GridItem, Select } from "@chakra-ui/react";
 import Front from "./Front";
 import Back from "./Back";
 
@@ -66,30 +67,36 @@ console.log(user)
   
     return (
       <>
-        <div style={{marginTop: "50px"}}>
-          
-        <select onChange={handleCategory}>
-          {/* <option>select color</option> */}
-            {templates.map(temp => {
-              return <option key={temp.id} value={temp.color}>{temp.color}</option>
-            })}
-        </select>
+        <div className="select-option"  >
+        <h1>choose a color :</h1>
+          <Select 
+              onChange={handleCategory} 
+             borderColor="orange.300"
+
+          >
+              {templates.map(temp => {
+                return <option key={temp.id} value={temp.color}>{temp.color}</option>
+              })}
+          </Select>
         </div>
+        
         <form onSubmit={handleSubmit} >
-        <div>
-        <Front  selectedColor={selectedColor} templates={templates} setFrontDesign={setFrontDesign} frontDesign={frontDesign}/>
-        </div>
-        <div>
-        <Back  selectedColor={selectedColor} templates={templates} setBackDesign={setBackDesign} backDesign={backDesign}/>  
-        </div>
+          <SimpleGrid columns={2} className="studio">
+             <GridItem colSpan={1}>
+                <Front  selectedColor={selectedColor} templates={templates} setFrontDesign={setFrontDesign} frontDesign={frontDesign}/>
+             </GridItem>
+             <GridItem colSpan={1}>
+                <Back  selectedColor={selectedColor} templates={templates} setBackDesign={setBackDesign} backDesign={backDesign}/>  
+             </GridItem>
           
               <input type="checkbox"  checked={privateVis} onChange={handleChange} />
-          <label>
-              keep your design private
-          </label>
-          <div style={{marginTop: "50px"}} >
-            <input type="submit" value="Create" />
-          </div>
+              <label>
+                  keep your design private
+              </label>
+              <div style={{marginTop: "50px"}} >
+                <input type="submit" value="Create" />
+              </div>
+          </SimpleGrid>
         </form>
       </>
     );

@@ -4,11 +4,27 @@ import { BrowserRouter } from "react-router-dom";
 import './App.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider, extendTheme } from '@chakra-ui/react';
+import { mode } from '@chakra-ui/theme-tools'
+
+
+// const overrides = extendTheme({
+//     styles: {
+//       global: (props) => ({
+//         body: {
+//           fontFamily: 'body',
+//           color: mode('gray.800', 'whiteAlpha.900')(props),
+//           bg: mode('../public/image/Slide1.PNG')(props),
+//           lineHeight: 'base',
+//         },
+//       }),
+//     },
+//   })
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <ChakraProvider>
+    <ChakraProvider >
         <BrowserRouter>
             <App />
         </BrowserRouter>

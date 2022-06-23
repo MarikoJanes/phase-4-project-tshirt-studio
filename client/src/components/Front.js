@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Stage, Layer, Image as Tshirt } from "react-konva";
+import { Button } from "@chakra-ui/react";
 import FrontDesign from "./FrontDesign";
 
 
@@ -108,7 +109,7 @@ function Front({ selectedColor, templates, setFrontDesign, frontDesign  }) {
   return (
     <>
         
-        <input type="button" value="save" onClick={handleFrontExport} />
+        <h1 className="sides">FRONT</h1>
         <Stage width="600" height="600" onMouseDown={checkDeselect}  ref={stageRef} >
           <Layer>
           <Tshirt  image={stageImage} />
@@ -131,7 +132,7 @@ function Front({ selectedColor, templates, setFrontDesign, frontDesign  }) {
           </Layer>
         </Stage>
 
-        <h1>hello</h1>
+       
         {/* <input onChange={e => handleLoadFront(e)} type="file" id="file_input" /> */}
         <form>
         <div className="form-group preview">
@@ -163,6 +164,8 @@ function Front({ selectedColor, templates, setFrontDesign, frontDesign  }) {
         Upload
       </button>
       </form>
+
+      <Button onClick={handleFrontExport} >Submit Front Design</Button>
     </>
   )
 }

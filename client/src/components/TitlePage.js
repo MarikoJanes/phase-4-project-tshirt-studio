@@ -1,19 +1,25 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import { Button, Flex, Text } from '@chakra-ui/react'
 
 function TitlePage() {
   return (
     <>
-      <h1>Welcome to T-shirt Studio!</h1>
-      <h2>Ready to create your original Ts?</h2>
-      <ul>
-        <li>
-          <Link to="/login" >Login</Link>
-        </li>
-        <li>
-          <Link to="/signup" >Signup</Link>
-        </li>
-      </ul>
+    <flex className="headlineContainer">
+      <h1 className="headline">Welcome to T-Studio!</h1>
+      <h2 className="headline">Ready to design an <i><b>awesome</b></i> custom T-shirt?</h2>
+    </flex>
+    <Flex className="titleButton" alignItems="center" justifyContent="center">
+      <Button colorScheme="orange">
+        <Link to="/login" >Login</Link>
+      </Button>
+      <Text mx={12}>OR</Text>
+      <Button colorScheme="orange">
+        <Link to="/signup" >Signup</Link>
+      </Button>
+    </Flex>
+          
+      
     </>
   )
 }

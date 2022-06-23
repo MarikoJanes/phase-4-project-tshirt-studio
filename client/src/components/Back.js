@@ -103,7 +103,7 @@ function Back({  selectedColor, templates, setBackDesign  }) {
     
   return (
     <>
-        <input type="button" value="save" onClick={handleBackExport} style={{ marginTop: "50px" }}/>
+        <input type="button" value="save" onClick={handleBackExport} />
         <Stage width="600" height="600" onMouseDown={checkDeselect} onTouchStart={checkDeselect} ref={stageRef}>
           <Layer>
           <Tshirt  image={stageImage} />

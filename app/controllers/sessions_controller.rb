@@ -1,5 +1,10 @@
 class SessionsController < ApplicationController
-before_action :authorized_user, except: [:login]
+before_action :is_authorized?, except: [:login]
+    
+    def show 
+        user = User.find_by(id: session[:current_user])
+        render json: user,  serializer: UserWithTshirtSerializer
+    end
 
     def login 
         user = User.find_by(name: params[:name])

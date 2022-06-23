@@ -40,7 +40,7 @@ function Login({ setUser, setIsAuthenticated }) {
     }
 
   return (
-    <Flex height="100vh" alignItems="center" justifyContent="center">
+    <Flex className="userForm" alignItems="center" justifyContent="center">
         <Flex className="login" direction="column" background="yellow.100" p={12} rounded={6}>
             <form onSubmit={handleSubmit} >
             <Heading mb={6} >Login</Heading>

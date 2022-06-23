@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import { Button, Box, Grid, Flex, SimpleGrid, GridItem, Wrap } from "@chakra-ui/react";
 import TshirtCard from './TshirtCard';
 
 function MyPage({ user }) {
   const [userData, setUserData] = useState({});
   const history = useHistory();
-  const id = useParams();
+
   
 
   useEffect(() => {
@@ -31,27 +31,31 @@ function MyPage({ user }) {
     setUserData(newData);
   }
 
-  if (!userData) return <h2>Loading...</h2>;
+  if (user === null) return <h2>Loading...</h2>;
 
   return (
     <>
+      <Flex justifyContent="center">
+        <h1 className='username'>{`Hello, ${user.name}!`}</h1>
+      </Flex>
+      <SimpleGrid columns={2} >
+        <GridItem colSpan={1} className="user-option">
+          <h1>Create a T-shirt?</h1>
+          <Button onClick={handleClickStart}>START</Button>
+        </GridItem>
+        <GridItem colSpan={1} className="user-option">
+          <h1>Browse T-shirt designs?</h1>
+          <Button onClick={handleClickView}>View designs</Button>
+        </GridItem>
+      </SimpleGrid>
       <div>
-        <h1>{`Hello, ${user.name}!`}</h1>
-      </div>
-      <div>
-        <h1>Create a T-shirt?</h1>
-        <button onClick={handleClickStart}>START</button>
-      </div>
-      <div>
-        <h1>Browse T-shirt designs?</h1>
-        <button onClick={handleClickView}>View designs</button>
-      </div>
-      <div>
-        <h3>your awesome designs!</h3>
+        <h1 className="design-collection">your awesome collections:</h1>
+        <Wrap>
         {userData.designed_tshirts ? 
           userData.designed_tshirts.map(data => {
             return <TshirtCard key={data.id} data={data} deleteDesign={deleteDesign} />
           }) : null}
+        </Wrap>
       </div>
     </>
   )

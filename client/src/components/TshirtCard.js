@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Box, Image, Flex, Stack } from "@chakra-ui/react";
 
 function TshirtCard({ data, deleteDesign }) {
   const [edit, setEdit] = useState(false);
@@ -41,22 +42,31 @@ function TshirtCard({ data, deleteDesign }) {
 
 
   return (
-    <div className='cards lists'>
-        <li className="card" id={data.id}>
-            <img style={{height: "236.29px"}} src={data.front_design} alt='' />
+<>
+    <Box className='cards lists' boxShadow="sm">
+       
+            <Image id={data.id} style={{height: "236.29px"}} src={data.front_design} alt='' />
+            <Stack>
+            <Box>   
+            
           <button  onClick={handleEditBtn} className="primary">Edit?</button>
+          
           {edit ? 
-          <div>
+       <Flex>
               <form onSubmit={handleSubmit} >
                   <input type="checkbox" checked={isChecked} onChange={handlePrivateChange}/>
                     <label>make it private?</label>
                   <input type="submit" value="Update!" />
               </form>
+              
               <button onClick={handleDelete}>X</button>
-          </div>
+        </Flex>
              : null}
-        </li>
-    </div>
+            
+            </Box>
+            </Stack>
+    </Box>
+</>
   )
 }
 

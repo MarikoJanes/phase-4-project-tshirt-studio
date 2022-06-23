@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
     def show 
         user = User.find_by(id: session[:current_user])
-        render json: user, serializer: UserWithTshirtSerializer
+        render json: user,  serializer: UserWithTshirtSerializer
     end
 
     def create 

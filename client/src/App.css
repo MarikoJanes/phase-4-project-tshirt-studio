@@ -1,87 +1,63 @@
-/* .App {
+
+body {
+  /* background-image: url("../public/image/Slide1.PNG") !important;
+  background-repeat: no-repeat;
+  background-size: cover; */
+  background-color: #fff8e9 !important;
+}
+
+#root{
+  height: 100vh;
+}
+
+.userForm {
+  margin-top: 10%;
+}
+
+.titleButton {
+  margin-top: 20%;
+}
+
+.headline {
+  font-size: 32px;
+}
+
+h1.headline {
+  margin-top: 10%;
+}
+
+.headlineContainer {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.username {
+  margin-top: 20px;
+  font-size: 32px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.user-option{
+  text-align: center;
+  margin-top: 10%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.design-collection {
+  margin-top: 10%;
 }
 
-.App-link {
-  color: #61dafb;
+.select-option {
+  margin-top: 50px;
+  width: 10%;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
-
-/* styling <TshirtCard /> */
-.cards {
-  list-style: none;
-}
-
-@media (min-width: 768px) {
-  .cards {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .card {
-    width: calc(33% - 2rem);
-  }
-}
-
-@media (min-width: 1024px) {
-  .card {
-    width: calc(25% - 2rem);
-  }
-}
-
-@media (min-width: 1200px) {
-  .card {
-    width: calc(20% - 2rem);
-  }
-}
-
-li {
-  list-style: none;
-}
-/* 
-button.primary {
-  padding: 0.25rem 1rem;
-  font-family: inherit;
-  border: none;
-  cursor: pointer;
-}
-
-button.primary {
-  background-color: var(--green);
-  color: green;
-} */
 
 .login {
   width: 400px;
 }
 
+.studio {
+  margin-top: 30px;
+}
+
+.sides {
+  font-size: 28px;
+  font-weight: bold;
+}

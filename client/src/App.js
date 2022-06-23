@@ -16,6 +16,21 @@ function App() {
   console.log(user)
   console.log(isAuthenticated)
 
+  useEffect(() => {
+    fetch("/authorized_user")
+    .then(res => res.json())
+    .then(data => {
+      if(data.id) {
+        setIsAuthenticated(true);
+        setUser(data);
+      } else {
+        setIsAuthenticated(false);
+        setUser(null);
+      }
+    })
+  }, [])
+
+
   return (
     <>
     <NavBar setIsAuthenticated={setIsAuthenticated} setUser={setUser} isAuthenticated={isAuthenticated} />

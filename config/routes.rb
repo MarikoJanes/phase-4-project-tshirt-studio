@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#login"
 
   # stay Logged in 
-  get "/authorized_user", to: "users#show"
+  get "/authorized_user", to: "sessions#show"
 
   # Log out
   delete "/logout", to: "sessions#logout"
