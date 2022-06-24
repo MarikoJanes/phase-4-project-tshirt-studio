@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
-import { Box, Image, Flex, Stack, Switch, FormLabel, Button, HStack } from "@chakra-ui/react";
+import { Box, Image, Stack, Switch, FormLabel, Button, HStack, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton } from "@chakra-ui/react";
 import { FaRegEdit, FaTrash } from "react-icons/fa"
-import { ChevronDownIcon, ChevronUpIcon } from "@chakra-ui/icons"
+import { ChevronDownIcon, ChevronUpIcon, Search2Icon } from "@chakra-ui/icons"
 
 function TshirtCard({ data, deleteDesign }) {
   const [edit, setEdit] = useState(false);
   const [isChecked, setIsChecked] = useState(data.private);
+  const [isToggle, setIsToggle] = useState(true);
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
 console.log(data)
 
@@ -44,13 +46,19 @@ console.log(data)
     .catch(err => console.log(err));
   }
 
+  function handleToggle() {
+    setIsToggle(!isToggle);
+  }
+
 
 
   return (
 <>
-    <Box id={data.id} className='cards lists' boxShadow="sm">
-       
-            <Image  style={{height: "300px"}} src={data.front_design} alt='' />
+    <Box id={data.id} boxShadow="sm">
+          <div>
+            <Image  className="cards" style={{height: "300px"}} src={data.front_design} alt='' />
+            <Search2Icon className="show-detail" onClick={onOpen}/>
+          </div>
             <Stack>
             <Box className="tshirt-card">   
             
@@ -73,6 +81,27 @@ console.log(data)
             </Box>
             </Stack>
     </Box>
+    <Modal
+        isCentered
+        onClose={onClose}
+        isOpen={isOpen}
+        motionPreset='slideInBottom'
+        size="xl"
+      >
+        <ModalOverlay />
+        <ModalContent>
+          <ModalCloseButton />
+          <ModalBody>
+            <Image  className="cards" style={{height: "500px"}} src={isToggle ? data.front_design : data.back_design} alt='' />
+          </ModalBody>
+          <ModalFooter className="modal-content">
+            <Button size="lg" colorScheme={isToggle ? 'green' : null } mr={3} onClick={handleToggle}>
+              FRONT
+            </Button>
+            <Button className="toggle-btn" size="lg" colorScheme={isToggle ? null : "green" } onClick={handleToggle}>BACK</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
 </>
   )
 }
