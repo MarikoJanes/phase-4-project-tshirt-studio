@@ -55,8 +55,8 @@ console.log(isPrivate);
   return (
 <>
     <Box id={data.id} boxShadow="sm">
-          <div>
-            <Image  className="cards" style={{height: "300px"}} src={data.front_design} alt='' />
+          <div className="card-parent">
+            <Image  className="cards" src={data.front_design} alt='' />
             <Search2Icon className="show-detail" onClick={onOpen}/>
           </div>
             <Stack>
