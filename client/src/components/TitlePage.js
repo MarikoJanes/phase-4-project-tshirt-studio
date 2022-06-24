@@ -1,9 +1,13 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import { Button, Flex, Text, Image } from '@chakra-ui/react'
+import { Button, Flex, Text, Image } from '@chakra-ui/react';
+import useDocumentTitle from '../hooks/useDocumentTitle';
 
 function TitlePage({ user }) {
   console.log(user);
+
+  useDocumentTitle("T-studio");
+
   return (
     <>
     <div className="container">

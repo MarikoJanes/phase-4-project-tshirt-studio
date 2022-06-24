@@ -49,7 +49,7 @@ function MyPage({ user }) {
           <Button className="jump" onClick={handleClickView}>View designs</Button>
         </GridItem>
       </SimpleGrid>
-      <div>
+      <div className="t-shirt-collection">
         <h1 className="design-collection">Your awesome T-shirts:</h1>
         <Wrap className="t-shirt-collection">
         {userData ? 
