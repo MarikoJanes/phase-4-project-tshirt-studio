@@ -31,9 +31,9 @@ function Auth({ setUser, setIsAuthenticated }) {
             if (res.ok) {
                 res.json()
                 .then(user => {
-                    setUser(user);
-                    setIsAuthenticated(true);
-                    history.push("/mypage");
+                    // setUser(user);
+                    // setIsAuthenticated(true);
+                    history.push("/");
                 })
             } else {
                 res.json()

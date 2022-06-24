@@ -102,7 +102,7 @@ function NavBar({ setIsAuthenticated, setUser, isAuthenticated }) {
           _hover={{ bg: "orange.200", borderColor: "orange.200" }}
           onClick={handleSignup}
         >
-          Sgin Up
+          Sign Up
         </Button>}
       </Box>
     </Flex>
