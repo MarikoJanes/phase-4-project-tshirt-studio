@@ -45,7 +45,7 @@ h1.headline {
 }
 
 .select-option {
-  margin-top: 50px;
+  margin: 50px 0 0 5%;
   width: 10%;
 }
 
@@ -60,4 +60,71 @@ h1.headline {
 .sides {
   font-size: 28px;
   font-weight: bold;
+  margin-left: 5%;
+}
+
+.form-group {
+  margin-top: 5%;
+  background-color: #D3CEDF;
+  border: 3px dashed #9CB4CC;
+  padding: 1rem;
+  width: 600px;
+  min-height:150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.file-inputs {
+  margin-bottom: 1.5rem;
+  width: 70%;
+  margin-left: 10%
+}
+
+.form-control {
+  height: 46px;
+}
+
+.btn {
+  background-color: #FFB562 !important;
+  color: #fff;
+  margin-left: 10%;
+}
+
+.icon {
+  margin-right: 5px;
+}
+
+.submit-btn {
+  margin: 5% 0 0 10%;
+}
+
+.close-btn {
+  color: gray;
+}
+
+.konvajs-content{
+  margin: auto;
+}
+
+.checkbox {
+  margin-top: 5%;
+  text-align: center;
+}
+
+.btn-create {
+  text-align: center;
+  background-color: #FFB562 !important;
+  color: #fff !important;
+  font-weight: bold !important;
+  width: 10%;
+}
+
+.error-message {
+  margin-top: 5%;
+  color: red;
+  text-align: center;
 }

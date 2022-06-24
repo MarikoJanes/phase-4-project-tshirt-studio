@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useHistory  } from "react-router-dom";
-import { SimpleGrid, GridItem, Select } from "@chakra-ui/react";
+import { SimpleGrid, GridItem, Select, Checkbox, Button } from "@chakra-ui/react";
 import Front from "./Front";
 import Back from "./Back";
 
@@ -11,6 +11,7 @@ function CreateStudio({ user }) {
     const [frontDesign, setFrontDesign] = useState(null);
     const [backDesign, setBackDesign] = useState(null);
     const [privateVis, setPrivateVis] = useState(false);
+    const [error, setError] = useState([]);
 
     const history = useHistory();
     
@@ -24,32 +25,35 @@ function CreateStudio({ user }) {
       })
     }, []);
 
-
+console.log(error);
     function handleSubmit(e) {
       e.preventDefault();
       console.log("submitted");
-      const tempObj = templates.find(t => t.color === selectedColor)
-      const createdTshirt = {
-        user_id: user.id,
-        tshirt_template_id: tempObj.id,
-        front_design: frontDesign,
-        back_design: backDesign,
-        private: privateVis
+      if(frontDesign === null || backDesign === null) {
+        setError("You haven't saved your design")
+      } else {
+        const tempObj = templates.find(t => t.color === selectedColor)
+        const createdTshirt = {
+          user_id: user.id,
+          tshirt_template_id: tempObj.id,
+          front_design: frontDesign,
+          back_design: backDesign,
+          private: privateVis
+        }
+  
+        fetch("/designed_tshirts", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(createdTshirt)
+        })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data);
+          history.push("/mypage");
+        });
       }
-
-      fetch("/designed_tshirts", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(createdTshirt)
-      })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-        history.push("/mypage");
-      });
-      
     }
 
     function handleCategory(e) {
@@ -88,15 +92,22 @@ console.log(user)
              <GridItem colSpan={1}>
                 <Back  selectedColor={selectedColor} templates={templates} setBackDesign={setBackDesign} backDesign={backDesign}/>  
              </GridItem>
-          
-              <input type="checkbox"  checked={privateVis} onChange={handleChange} />
-              <label>
-                  keep your design private
-              </label>
-              <div style={{marginTop: "50px"}} >
-                <input type="submit" value="Create" />
-              </div>
           </SimpleGrid>
+              <div className="checkbox">
+              <Checkbox 
+                  type="checkbox"  
+                  checked={privateVis} 
+                  onChange={handleChange} 
+                  size='lg' colorScheme='orange' defaultChecked
+              >
+                  keep your design private?
+              </Checkbox>
+              </div>
+              {error.length > 0 ? <h1 className='error-message'>{error}</h1> : null}
+              <div className="checkbox">
+                <Button className='btn-create' type="submit" >Create</Button>
+              </div>
+          
         </form>
       </>
     );

@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Stage, Layer, Image as Tshirt } from "react-konva";
+import { Button, Box, Wrap, Input } from "@chakra-ui/react";
+import { TbCirclePlus } from "react-icons/tb";
+import { FaRegWindowClose } from "react-icons/fa";
 import BackDesign from './BackDesign';
 
 function Back({  selectedColor, templates, setBackDesign  }) {
@@ -103,7 +106,8 @@ function Back({  selectedColor, templates, setBackDesign  }) {
     
   return (
     <>
-        <input type="button" value="save" onClick={handleBackExport} />
+        <h1 className="sides">BACK</h1>
+        <Box className="stage">
         <Stage width="600" height="600" onMouseDown={checkDeselect} onTouchStart={checkDeselect} ref={stageRef}>
           <Layer>
           <Tshirt  image={stageImage} />
@@ -124,38 +128,48 @@ function Back({  selectedColor, templates, setBackDesign  }) {
             }) : null}
           </Layer>
         </Stage>
-        <h1>BACK</h1>
+        </Box>
         {/* <input onChange={e => handleLoad(e)} type="file" id="file_input" /> */}
         <form>
-        <div className="form-group preview">
+        <Wrap className="form-group preview">
             {loadedElements.length > 0 &&
             loadedElements.map((item, index) => {
                 return (
-                     <div key={index}>
+                     <Box key={index}>
                          <img src={item.image.src} alt="" width="100px" height="100px" />
-                        <button type="button" onClick={() => deleteFile(index)}>
-                            delete
+                        <button className='close-btn' type="button" onClick={() => deleteFile(index)}>
+                            <FaRegWindowClose/>
                         </button>
-                     </div>
+                     </Box>
                  );
           })}
-        </div>
-        <div className="form-group">
-        <input
+        </Wrap>
+        <div className="file-inputs">
+        <Input
           type="file"
           disabled={loadedElements.length === 5}
           className="form-control"
           onChange={uploadSingleFile}
         />
         </div>
-      <button
+      <Button
         type="button"
         className="btn btn-primary btn-block"
         onClick={upload}
       >
-        Upload
-      </button>
+      <span className="icon">
+      <TbCirclePlus/>
+      </span>
+         Upload
+      </Button>
       </form>
+
+      <Button 
+        onClick={handleBackExport} 
+        className="btn submit-btn"
+      >
+        Save Front Design
+      </Button>
     </>
   )
 }

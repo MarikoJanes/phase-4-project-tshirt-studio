@@ -1,7 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Stage, Layer, Image as Tshirt } from "react-konva";
-import { Button } from "@chakra-ui/react";
+import { Button, Box, Wrap, Input } from "@chakra-ui/react";
+import { TbCirclePlus } from "react-icons/tb";
+import { FaRegWindowClose } from "react-icons/fa";
 import FrontDesign from "./FrontDesign";
+
 
 
 function Front({ selectedColor, templates, setFrontDesign, frontDesign  }) {
@@ -135,37 +138,45 @@ function Front({ selectedColor, templates, setFrontDesign, frontDesign  }) {
        
         {/* <input onChange={e => handleLoadFront(e)} type="file" id="file_input" /> */}
         <form>
-        <div className="form-group preview">
+        <Wrap className="form-group preview">
             {loadedElements.length > 0 &&
             loadedElements.map((item, index) => {
                 return (
-                     <div key={index}>
+                  <Box key={index}>
                          <img src={item.image.src} alt="" width="100px" height="100px" />
-                        <button type="button" onClick={() => deleteFile(index)}>
-                            delete
+                        <button className='close-btn' type="button" onClick={() => deleteFile(index)}>
+                            <FaRegWindowClose/>
                         </button>
-                     </div>
+                  </Box>
                  );
           })}
-        </div>
-        <div className="form-group">
-        <input
+        </Wrap>
+        <div className="file-inputs">
+        <Input
           type="file"
           disabled={loadedElements.length === 5}
           className="form-control"
           onChange={uploadSingleFile}
         />
         </div>
-      <button
+      <Button
         type="button"
-        className="btn btn-primary btn-block"
+        className="btn"
         onClick={upload}
       >
-        Upload
-      </button>
+      <span className="icon">
+      <TbCirclePlus/>
+      </span>
+         Upload
+      </Button>
       </form>
 
-      <Button onClick={handleFrontExport} >Submit Front Design</Button>
+      <Button 
+        onClick={handleFrontExport} 
+        className="btn submit-btn"
+      >
+        Save Front Design
+      </Button>
     </>
   )
 }
