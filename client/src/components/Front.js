@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Stage, Layer, Image as Tshirt } from "react-konva";
-import { Button, Box, Wrap, Input } from "@chakra-ui/react";
+import { Button, Box, Wrap, Input, useDisclosure, Alert, AlertIcon, AlertTitle, CloseButton } from "@chakra-ui/react";
 import { TbCirclePlus } from "react-icons/tb";
 import { FaRegWindowClose } from "react-icons/fa";
 import FrontDesign from "./FrontDesign";
@@ -15,6 +15,11 @@ function Front({ selectedColor, templates, setFrontDesign, frontDesign  }) {
     const [isClicked,setIsClicked] = useState(false);
     const stageRef = useRef();
 
+    const {
+      isOpen: isVisible,
+      onClose,
+      onOpen,
+    } = useDisclosure({ defaultIsOpen: false })
     console.log(loadedElements)
   
 
@@ -74,6 +79,7 @@ function Front({ selectedColor, templates, setFrontDesign, frontDesign  }) {
     function handleFrontExport() {
         const uri = stageRef.current.toDataURL();
         setFrontDesign(uri);
+        onOpen();
         console.log("clicked");
     }
 
@@ -173,10 +179,27 @@ function Front({ selectedColor, templates, setFrontDesign, frontDesign  }) {
 
       <Button 
         onClick={handleFrontExport} 
+        
         className="btn submit-btn"
       >
         Save Front Design
       </Button>
+ 
+
+      {isVisible? 
+        <div className="alert">
+          <Alert status='success'>
+              <AlertIcon />
+              <AlertTitle>Success!</AlertTitle>
+              <CloseButton
+                alignSelf='flex-start'
+                position='relative'
+                right={-1}
+                color="gray"
+                onClick={onClose}
+              />
+          </Alert>
+        </div> : null}
     </>
   )
 }

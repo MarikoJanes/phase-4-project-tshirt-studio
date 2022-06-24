@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Stage, Layer, Image as Tshirt } from "react-konva";
-import { Button, Box, Wrap, Input } from "@chakra-ui/react";
+import { Button, Box, Wrap, Input, useDisclosure, Alert, AlertIcon, AlertTitle, CloseButton } from "@chakra-ui/react";
 import { TbCirclePlus } from "react-icons/tb";
 import { FaRegWindowClose } from "react-icons/fa";
 import BackDesign from './BackDesign';
@@ -13,7 +13,11 @@ function Back({  selectedColor, templates, setBackDesign  }) {
     const [isClicked,setIsClicked] = useState(false);
     const stageRef = useRef();
 
-
+    const {
+      isOpen: isVisible,
+      onClose,
+      onOpen,
+    } = useDisclosure({ defaultIsOpen: false })
 
      //fetch the template
      useEffect(() => {
@@ -71,6 +75,7 @@ function Back({  selectedColor, templates, setBackDesign  }) {
     function handleBackExport() {
         const uri = stageRef.current.toDataURL();
         setBackDesign(uri);
+        onOpen();
         console.log("clicked");
     }
 
@@ -170,6 +175,21 @@ function Back({  selectedColor, templates, setBackDesign  }) {
       >
         Save Front Design
       </Button>
+
+      {isVisible? 
+        <div className="alert">
+          <Alert status='success'>
+              <AlertIcon />
+              <AlertTitle>Success!</AlertTitle>
+              <CloseButton
+                alignSelf='flex-start'
+                position='relative'
+                right={-1}
+                color="gray"
+                onClick={onClose}
+              />
+          </Alert>
+        </div> : null}
     </>
   )
 }

@@ -14,6 +14,7 @@ function CreateStudio({ user }) {
     const [error, setError] = useState([]);
 
     const history = useHistory();
+
     
     //fetch the template
     useEffect(() => {

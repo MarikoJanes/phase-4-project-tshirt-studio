@@ -273,4 +273,15 @@ top: 30%
   width: 50%
 }
 
+.hline-galleries {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  margin: 10% 0;
+}
 
+.alert {
+  margin-left: 10%;
+  margin-top: 3%;
+  width: 23%;
+}

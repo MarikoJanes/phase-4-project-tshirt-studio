@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Button, Flex, Text, Image } from '@chakra-ui/react'
 
 function TitlePage({ user }) {
+  console.log(user);
   return (
     <>
     <div className="container">
