@@ -28,7 +28,7 @@ function SlideshowImage({ tshirt }) {
         <ModalContent>
             <ModalHeader>
                 <h1 className="modal-header">
-                    Creator: {creatorName}
+                    Designed by: {creatorName}
                 </h1>
             </ModalHeader>
              <ModalCloseButton />
