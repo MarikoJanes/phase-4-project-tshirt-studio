@@ -41,16 +41,16 @@ function MyPage({ user }) {
       </Flex>
       <SimpleGrid columns={2} >
         <GridItem colSpan={1} className="user-option">
-          <h1>Create a T-shirt?</h1>
-          <Button onClick={handleClickStart}>START</Button>
+          <h1>Create a T-shirt</h1>
+          <Button className="jump" onClick={handleClickStart}>START</Button>
         </GridItem>
         <GridItem colSpan={1} className="user-option">
-          <h1>Browse T-shirt designs?</h1>
-          <Button onClick={handleClickView}>View designs</Button>
+          <h1>Browse T-shirt designs</h1>
+          <Button className="jump" onClick={handleClickView}>View designs</Button>
         </GridItem>
       </SimpleGrid>
       <div>
-        <h1 className="design-collection">your awesome collections:</h1>
+        <h1 className="design-collection">Your awesome T-shirts:</h1>
         <Wrap className="t-shirt-collection">
         {userData ? 
           userData.map(data => {

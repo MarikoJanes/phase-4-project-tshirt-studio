@@ -59,7 +59,7 @@ console.log(tshirtData);
         </Carousel>
         </div>
         <div className="navigate-container">
-            <h1 className="navigate">got some inspiration?</h1>
+            <h1 className="navigate">Ready to design?</h1>
             <Button className='jump-btn'>
                 <Link to="/new" >
                     START

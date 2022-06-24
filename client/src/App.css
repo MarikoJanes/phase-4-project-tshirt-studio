@@ -302,6 +302,13 @@ top: 30%
   font-weight: bold !important;
 }
 
+.jump {
+  background-color: #FFB562 !important;
+  color: #fff;
+  margin-top: 5%;
+  font-weight: bold !important;
+}
+
 .navigate-container {
   text-align: center;
 }

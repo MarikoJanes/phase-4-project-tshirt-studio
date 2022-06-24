@@ -1,22 +1,22 @@
 import React, { useState } from 'react'
-import { Box, Image, Stack, Switch, FormLabel, Button, HStack, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton } from "@chakra-ui/react";
+import { Box, Image, Stack, FormLabel, Button, HStack, useDisclosure, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton } from "@chakra-ui/react";
 import { FaRegEdit, FaTrash } from "react-icons/fa"
 import { ChevronDownIcon, ChevronUpIcon, Search2Icon } from "@chakra-ui/icons"
 
 function TshirtCard({ data, deleteDesign }) {
   const [edit, setEdit] = useState(false);
-  const [isChecked, setIsChecked] = useState(data.private);
+  const [isPrivate, setIsPrivate] = useState(data.private);
   const [isToggle, setIsToggle] = useState(true);
   const { isOpen, onOpen, onClose } = useDisclosure()
 
-console.log(data)
+console.log(isPrivate);
 
   function handleEditBtn() {
     setEdit(!edit);
   }
 
-  function handlePrivateChange() {
-    setIsChecked(!isChecked);
+  function handlePrivateChange(e) {
+    setIsPrivate(e.target.checked);
   }
 
   function handleSubmit(e) {
@@ -28,7 +28,7 @@ console.log(data)
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        private: isChecked
+        private: isPrivate
       })
     })
     .then(res => res.json())
@@ -69,8 +69,8 @@ console.log(data)
               <form onSubmit={handleSubmit} >
               <HStack >
                 <FaRegEdit className="delete-btn"/>
-                <FormLabel className="update-form">make it private?</FormLabel>
-                  <Switch className="update-form" type="checkbox" colorScheme="green" checked={isChecked} onChange={handlePrivateChange}/>
+                <FormLabel className="update-form">Set it private?</FormLabel>
+                  <input className="update-form" type="checkbox"  checked={isPrivate} onChange={handlePrivateChange}/>
               </HStack>
                      <Button className="btn card-btn" type="submit" size="sm" >Update</Button>
               </form>

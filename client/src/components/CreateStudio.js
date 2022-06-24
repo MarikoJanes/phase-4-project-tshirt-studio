@@ -6,7 +6,7 @@ import Back from "./Back";
 
 
 function CreateStudio({ user }) {
-    const [selectedColor, setSelectedColor] = useState("white");
+    const [selectedColor, setSelectedColor] = useState("White");
     const [templates, setTemplates] = useState([]);
     const [frontDesign, setFrontDesign] = useState(null);
     const [backDesign, setBackDesign] = useState(null);
@@ -100,7 +100,7 @@ console.log(user)
                   onChange={handleChange} 
                   size='lg' colorScheme='orange' defaultChecked
               >
-                  keep your design private?
+                  Set your design public?
               </Checkbox>
               </div>
               {error.length > 0 ? <h1 className='error-message'>{error}</h1> : null}

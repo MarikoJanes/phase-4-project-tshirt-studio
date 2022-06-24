@@ -87,8 +87,8 @@ function Back({  selectedColor, templates, setBackDesign  }) {
         
         element.onload = function() {
           const elementObj = {
-            x: 10,
-            y: 10,
+            x: 250,
+            y: 250,
             width: 100,
             height: 100,
             image: element 
