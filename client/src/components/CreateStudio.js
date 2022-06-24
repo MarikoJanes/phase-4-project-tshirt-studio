@@ -14,7 +14,6 @@ function CreateStudio({ user }) {
     const [error, setError] = useState([]);
 
     const history = useHistory();
-
     
     //fetch the template
     useEffect(() => {
@@ -85,7 +84,7 @@ console.log(user)
           </Select>
         </div>
         
-        <form onSubmit={handleSubmit} >
+        <form onSubmit={handleSubmit}>
           <SimpleGrid columns={2} className="studio">
              <GridItem colSpan={1}>
                 <Front  selectedColor={selectedColor} templates={templates} setFrontDesign={setFrontDesign} frontDesign={frontDesign}/>
@@ -106,7 +105,7 @@ console.log(user)
               </div>
               {error.length > 0 ? <h1 className='error-message'>{error}</h1> : null}
               <div className="checkbox">
-                <Button className='btn-create' type="submit" >Create</Button>
+                <Button className='btn-create page-bottom-1' type="submit" >Create</Button>
               </div>
           
         </form>

@@ -18,17 +18,17 @@ function TitlePage({ user }) {
     </div>
     {user === null ? 
       <Flex className="titleButton" alignItems="center" justifyContent="center">
-        <Button colorScheme="orange">
+        <Button colorScheme="orange" className="page-bottom-1">
           <Link to="/login" >Login</Link>
         </Button>
-        <Text mx={12}>OR</Text>
-        <Button colorScheme="orange">
+        <Text mx={12} className="page-bottom-1">OR</Text>
+        <Button colorScheme="orange" className="page-bottom-1">
           <Link to="/signup" >Signup</Link>
         </Button>
       </Flex> 
       : 
       <Flex className="titleButton" alignItems="center" justifyContent="center">
-        <Button colorScheme="orange">
+        <Button colorScheme="orange" className="page-bottom-1">
           <Link to="/mypage" >Get Started</Link>
         </Button>
       </Flex>

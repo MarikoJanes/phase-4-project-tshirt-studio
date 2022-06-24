@@ -15,7 +15,7 @@ body {
 }
 
 .titleButton {
-  margin-top: 20%;
+  margin-top: 10%;
 }
 
 .headline {
@@ -284,4 +284,32 @@ top: 30%
   margin-left: 10%;
   margin-top: 3%;
   width: 23%;
+}
+
+.modal-header {
+  font-size: 32px;
+}
+
+.navigate {
+  margin: 10% 0 3%;
+  font-size: 24px;
+}
+
+.jump-btn {
+  background-color: #FFB562 !important;
+  color: #fff;
+  margin-bottom: 20%;
+  font-weight: bold !important;
+}
+
+.navigate-container {
+  text-align: center;
+}
+
+.page-bottom {
+  margin-bottom: 20%;
+}
+
+.page-bottom-1 {
+  margin-bottom: 10%
 }

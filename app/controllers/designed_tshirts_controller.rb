@@ -1,7 +1,8 @@
 class DesignedTshirtsController < ApplicationController
 
     def index 
-        render json: DesignedTshirt.all 
+        tshirts = DesignedTshirt.all
+        render json: tshirts
     end
 
     def show 

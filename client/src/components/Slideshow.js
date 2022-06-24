@@ -1,19 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import { Button } from "@chakra-ui/react";
 
+import SlideshowImage from './SlideshowImage';
 
 function Slideshow({ tshirtData }) {
 
 
-    const tshirtImages = tshirtData.map(tshirt => {
-        return <div key={tshirt.id} ><img onClick={handleClick} id={tshirt.id} style={{height: "300px",}} src={tshirt.front_design} alt={tshirt.id}/></div>
-    })
-
-    function handleClick(e) {
-      console.log("hi");
-    }
-
+console.log(tshirtData);
     const responsive = {
         desktop: {
           breakpoint: { max: 5000, min: 1024 },
@@ -31,6 +27,8 @@ function Slideshow({ tshirtData }) {
           slidesToSlide: 1 // optional, default to 1.
         }
       };
+
+    
 
 
   return (
@@ -54,10 +52,19 @@ function Slideshow({ tshirtData }) {
             // deviceType={this.props.deviceType}
             dotListClass="custom-dot-list-style"
             itemClass="carousel-item-padding-40-px"
-        
         >
-            {tshirtImages}
+        {tshirtData.map(tshirt => {
+        return <SlideshowImage key={tshirt.id} tshirt={tshirt} />
+    })}
         </Carousel>
+        </div>
+        <div className="navigate-container">
+            <h1 className="navigate">got some inspiration?</h1>
+            <Button className='jump-btn'>
+                <Link to="/new" >
+                    START
+                </Link>
+            </Button>
         </div>
     </>
   )

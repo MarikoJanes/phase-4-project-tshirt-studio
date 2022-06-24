@@ -60,14 +60,15 @@ console.log(data)
             <Search2Icon className="show-detail" onClick={onOpen}/>
           </div>
             <Stack>
-            <Box className="tshirt-card">   
-            
-          <Button  onClick={handleEditBtn} className="delete-btn"><FaRegEdit/></Button>
-          {edit ? <ChevronUpIcon /> : <ChevronDownIcon />}
+            <Box className="tshirt-card page-bottom">   
+           
+          <Button  onClick={handleEditBtn} className="delete-btn">{edit ? <ChevronUpIcon /> : <ChevronDownIcon />}</Button>
+          {/* {edit ? <ChevronUpIcon /> : <ChevronDownIcon />} */}
           {edit ? 
             <div>
               <form onSubmit={handleSubmit} >
               <HStack >
+                <FaRegEdit className="delete-btn"/>
                 <FormLabel className="update-form">make it private?</FormLabel>
                   <Switch className="update-form" type="checkbox" colorScheme="green" checked={isChecked} onChange={handlePrivateChange}/>
               </HStack>
