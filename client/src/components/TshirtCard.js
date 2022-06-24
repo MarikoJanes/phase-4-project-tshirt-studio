@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
-import { Box, Image, Flex, Stack } from "@chakra-ui/react";
+import { Box, Image, Flex, Stack, Switch, FormLabel, Button, HStack } from "@chakra-ui/react";
+import { FaRegEdit, FaTrash } from "react-icons/fa"
+import { ChevronDownIcon, ChevronUpIcon } from "@chakra-ui/icons"
 
 function TshirtCard({ data, deleteDesign }) {
   const [edit, setEdit] = useState(false);
   const [isChecked, setIsChecked] = useState(data.private);
 
-
+console.log(data)
 
   function handleEditBtn() {
     setEdit(!edit);
@@ -32,35 +34,40 @@ function TshirtCard({ data, deleteDesign }) {
   }
 
   function handleDelete(e) {
-    console.log(e.target.parentElement.parentElement.id);
+    // console.log(e.target.parentElement.parentElement.parentElement.parentElement.id);
     fetch(`/designed_tshirts/${data.id}`, {
       method: "DELETE"
     })
-    deleteDesign(e.target.parentElement.parentElement.id);
+    .then(() => {
+      deleteDesign(data.id);
+    })
+    .catch(err => console.log(err));
   }
 
 
 
   return (
 <>
-    <Box className='cards lists' boxShadow="sm">
+    <Box id={data.id} className='cards lists' boxShadow="sm">
        
-            <Image id={data.id} style={{height: "236.29px"}} src={data.front_design} alt='' />
+            <Image  style={{height: "300px"}} src={data.front_design} alt='' />
             <Stack>
-            <Box>   
+            <Box className="tshirt-card">   
             
-          <button  onClick={handleEditBtn} className="primary">Edit?</button>
-          
+          <Button  onClick={handleEditBtn} className="delete-btn"><FaRegEdit/></Button>
+          {edit ? <ChevronUpIcon /> : <ChevronDownIcon />}
           {edit ? 
-       <Flex>
+            <div>
               <form onSubmit={handleSubmit} >
-                  <input type="checkbox" checked={isChecked} onChange={handlePrivateChange}/>
-                    <label>make it private?</label>
-                  <input type="submit" value="Update!" />
+              <HStack >
+                <FormLabel className="update-form">make it private?</FormLabel>
+                  <Switch className="update-form" type="checkbox" colorScheme="green" checked={isChecked} onChange={handlePrivateChange}/>
+              </HStack>
+                     <Button className="btn card-btn" type="submit" size="sm" >Update</Button>
               </form>
               
-              <button onClick={handleDelete}>X</button>
-        </Flex>
+              <Button onClick={handleDelete} className="delete-btn"><span className='delete'><FaTrash /></span> Delete</Button>
+            </div>
              : null}
             
             </Box>

@@ -55,7 +55,7 @@ function NavBar({ setIsAuthenticated, setUser, isAuthenticated }) {
         <HamburgerIcon />
       </Box>
 
-      <Stack
+      {/* <Stack
         direction={{ base: "column", md: "row" }}
         display={{ base: isOpen ? "block" : "none", md: "flex" }}
         width={{ base: "full", md: "auto" }}
@@ -66,7 +66,7 @@ function NavBar({ setIsAuthenticated, setUser, isAuthenticated }) {
         <Text>Docs</Text>
         <Text>Examples</Text>
         <Text>Blog</Text>
-      </Stack>
+      </Stack> */}
 
       <Box
         display={{ base: isOpen ? "block" : "none", md: "block" }}

@@ -1,25 +1,37 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import { Button, Flex, Text } from '@chakra-ui/react'
+import { Button, Flex, Text, Image } from '@chakra-ui/react'
 
-function TitlePage() {
+function TitlePage({ user }) {
   return (
     <>
-    <flex className="headlineContainer">
+    <div className="container">
       <h1 className="headline">Welcome to T-Studio!</h1>
       <h2 className="headline">Ready to design an <i><b>awesome</b></i> custom T-shirt?</h2>
-    </flex>
-    <Flex className="titleButton" alignItems="center" justifyContent="center">
-      <Button colorScheme="orange">
-        <Link to="/login" >Login</Link>
-      </Button>
-      <Text mx={12}>OR</Text>
-      <Button colorScheme="orange">
-        <Link to="/signup" >Signup</Link>
-      </Button>
-    </Flex>
-          
-      
+    </div>
+    <div className="headlineContainer">
+      <img className="title-image" src="../image/tshirt-icon.png" />     
+      <img className="splatter" src="../image/splatter.png" />
+      <img className="splatter2" src="../image/splatter2.png" />
+      <img className="splatter3" src="../image/splatter3.png" />
+    </div>
+    {user === null ? 
+      <Flex className="titleButton" alignItems="center" justifyContent="center">
+        <Button colorScheme="orange">
+          <Link to="/login" >Login</Link>
+        </Button>
+        <Text mx={12}>OR</Text>
+        <Button colorScheme="orange">
+          <Link to="/signup" >Signup</Link>
+        </Button>
+      </Flex> 
+      : 
+      <Flex className="titleButton" alignItems="center" justifyContent="center">
+        <Button colorScheme="orange">
+          <Link to="/mypage" >Get Started</Link>
+        </Button>
+      </Flex>
+    }
     </>
   )
 }

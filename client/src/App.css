@@ -26,10 +26,6 @@ h1.headline {
   margin-top: 10%;
 }
 
-.headlineContainer {
-  text-align: center;
-}
-
 .username {
   margin-top: 20px;
   font-size: 32px;
@@ -41,7 +37,7 @@ h1.headline {
 }
 
 .design-collection {
-  margin-top: 10%;
+  margin: 10% 0 3% 3%;
 }
 
 .select-option {
@@ -127,4 +123,139 @@ h1.headline {
   margin-top: 5%;
   color: red;
   text-align: center;
+}
+
+.tshirt-card {
+  background-color: #FFDAAF;
+}
+
+.card-btn {
+  left: 50%;
+}
+
+.update-form {
+  margin-left: 15%;
+}
+
+.delete-btn {
+  margin-left: 3%;
+  background-color: transparent !important;
+}
+
+.delete {
+  margin-right: 5%;
+}
+
+.t-shirt-collection {
+  padding-left: 3%;
+  padding-right: 3%;
+}
+
+.title-image {
+  margin: auto;
+  padding-top: 5%;
+}
+
+.container {
+  text-align: center;
+}
+
+/* test animation */
+.headlineContainer {
+  text-align: center;
+  -webkit-animation-name: zoomIn;
+  animation-name: zoomIn;
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.splatter {
+  display: inline;
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  z-index: 0;
+  -webkit-animation-name: zoomIn;
+  animation-name: zoomIn;
+  -webkit-animation-duration: .2s;
+  animation-duration: .2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; 
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s; 
+}
+
+.splatter2 {
+  display: inline;
+  position: absolute;
+  top: 30%;
+  left: 45%;
+  z-index: 0;
+  -webkit-animation-name: zoomIn;
+  animation-name: zoomIn;
+  -webkit-animation-duration: .2s;
+  animation-duration: .2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; 
+  -webkit-animation-delay: 0.9s;
+  animation-delay: 0.9s; 
+}
+
+.splatter3 {
+  display: inline;
+  position: absolute;
+  top: 55%;
+  left: 20%;
+  z-index: 0;
+  -webkit-animation-name: zoomIn;
+  animation-name: zoomIn;
+  -webkit-animation-duration: .2s;
+  animation-duration: .2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; 
+  -webkit-animation-delay: 1.6s;
+  animation-delay: 1.6s; 
+}
+
+
+
+@-webkit-keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+} 
+
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+} 
+
+@-webkit-keyframes zoomIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(.3, .3, .3);
+            transform: scale3d(.3, .3, .3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(.3, .3, .3);
+            transform: scale3d(.3, .3, .3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.zoomIn {
+  -webkit-animation-name: zoomIn;
+          animation-name: zoomIn;
 }

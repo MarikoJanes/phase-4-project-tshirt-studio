@@ -50,7 +50,7 @@ function App() {
       <Route exact path="/galleries">
         <Gallery />
       </Route>
-      <Route exact path="/" >
+      <Route exact path="/" user={user}>
         <TitlePage />
       </Route>
     </Switch>

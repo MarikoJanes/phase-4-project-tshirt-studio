@@ -4,7 +4,7 @@ import { Button, Box, Grid, Flex, SimpleGrid, GridItem, Wrap } from "@chakra-ui/
 import TshirtCard from './TshirtCard';
 
 function MyPage({ user }) {
-  const [userData, setUserData] = useState({});
+  const [userData, setUserData] = useState([]);
   const history = useHistory();
 
   
@@ -12,7 +12,7 @@ function MyPage({ user }) {
   useEffect(() => {
     fetch(`/authorized_user`)
     .then(res => res.json())
-    .then(data => setUserData(data))
+    .then(data => setUserData(data.designed_tshirts))
   }, []);
 
   function handleClickStart() {
@@ -26,7 +26,8 @@ function MyPage({ user }) {
 
   function deleteDesign(id) {
     console.log(id);
-    const newData = userData.designed_tshirts.filter(tshirt => tshirt.id !== id);
+    const newData = userData.filter(tshirt => tshirt.id !== id);
+    // userData.designed_tshirts = newData;
     console.log(newData);
     setUserData(newData);
   }
@@ -50,9 +51,9 @@ function MyPage({ user }) {
       </SimpleGrid>
       <div>
         <h1 className="design-collection">your awesome collections:</h1>
-        <Wrap>
-        {userData.designed_tshirts ? 
-          userData.designed_tshirts.map(data => {
+        <Wrap className="t-shirt-collection">
+        {userData ? 
+          userData.map(data => {
             return <TshirtCard key={data.id} data={data} deleteDesign={deleteDesign} />
           }) : null}
         </Wrap>
