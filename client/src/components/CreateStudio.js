@@ -85,7 +85,7 @@ console.log(user)
         </div>
         
         <form onSubmit={handleSubmit}>
-          <SimpleGrid columns={2} className="studio">
+          <SimpleGrid columns={{lg: 2, md: 1}} className="studio">
              <GridItem colSpan={1}>
                 <Front  selectedColor={selectedColor} templates={templates} setFrontDesign={setFrontDesign} frontDesign={frontDesign}/>
              </GridItem>
