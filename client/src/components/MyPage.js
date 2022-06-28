@@ -41,7 +41,7 @@ function MyPage({ user }) {
       </Flex>
       <SimpleGrid columns={2} >
         <GridItem colSpan={1} className="user-option">
-          <h1>Create a T-shirt</h1>
+          <h1>Design a T-shirt</h1>
           <Button className="jump" onClick={handleClickStart}>START</Button>
         </GridItem>
         <GridItem colSpan={1} className="user-option">

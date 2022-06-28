@@ -161,6 +161,7 @@ h1.headline {
 .title-image {
   margin: auto;
   padding-top: 5%;
+  position: relative;
 }
 
 .container {
@@ -169,6 +170,7 @@ h1.headline {
 
 /* test animation */
 .headlineContainer {
+  position: relative;
   text-align: center;
   -webkit-animation-name: zoomIn;
   animation-name: zoomIn;
