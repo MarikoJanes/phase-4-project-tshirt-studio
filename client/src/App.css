@@ -162,14 +162,20 @@ h1.headline {
   margin: auto;
   padding-top: 5%;
   position: relative;
+  text-align: center;
 }
 
 .container {
   text-align: center;
+  justify-content: center;
 }
 
 /* test animation */
 .headlineContainer {
+  height: 813.5px;
+  width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
   position: relative;
   text-align: center;
   -webkit-animation-name: zoomIn;

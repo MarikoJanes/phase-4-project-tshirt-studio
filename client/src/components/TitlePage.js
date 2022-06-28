@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import { Button, Flex, Text, Image, SimpleGrid } from '@chakra-ui/react';
+import { Button, Flex, Text } from '@chakra-ui/react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 
 function TitlePage({ user }) {
@@ -14,14 +14,12 @@ function TitlePage({ user }) {
       <h1 className="headline">Welcome to T-Studio!</h1>
       <h2 className="headline">Ready to design an <i><b>awesome</b></i> custom T-shirt?</h2>
     </div>
-    <SimpleGrid col={1}>
     <div className="headlineContainer">
       <img className="title-image" src="../image/tshirt-icon.png" />     
       <img className="splatter" src="../image/splatter.png" />
       <img className="splatter2" src="../image/splatter2.png" />
       <img className="splatter3" src="../image/splatter3.png" />
     </div>
-    </SimpleGrid>
     {user === null ? 
       <Flex className="titleButton" alignItems="center" justifyContent="center">
         <Button colorScheme="orange" className="page-bottom-1">
